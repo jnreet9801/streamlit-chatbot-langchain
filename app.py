@@ -61,8 +61,15 @@ if uploaded_file is not None:
 
         # Prompt
         prompt = ChatPromptTemplate.from_template(
-            """Answer the question using ONLY the context below.
-            If the answer is not in the context, say "I don't know".
+            """You are an expert assistant.
+                Using ONLY the information from the context below:
+                - Answer the question directly and accurately
+                - Keep the answer short, clear, and to the point
+                - Do not add extra information
+                - Do not make assumptions
+                
+                If the answer is not explicitly present in the context, reply exactly:
+                "I don't know."
 
             Context:
             {context}
@@ -92,3 +99,4 @@ if uploaded_file is not None:
 
         st.markdown("### ✅ Answer")
         st.write(answer)
+
